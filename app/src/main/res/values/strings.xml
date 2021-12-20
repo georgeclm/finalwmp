@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FinalWMP</string>
+    <string name="reset">Reset</string>
+    <string name="start">Start</string>
+    <string name="Stop">Stop</string>
+    <string name="Start">Start</string>
+</resources>
