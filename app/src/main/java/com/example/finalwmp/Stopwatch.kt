@@ -1,6 +1,5 @@
 package com.example.finalwmp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.os.Bundle
@@ -11,7 +10,7 @@ import com.example.finalwmp.R
 import android.widget.Toast
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class Stopwatch : AppCompatActivity() {
     // integers to store hours , minutes , seconds ,  ms
     var hours = 0
     var minutes = 0
@@ -37,19 +36,14 @@ class MainActivity : AppCompatActivity() {
     var timeLapse: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val actionBar = supportActionBar
-        actionBar!!.title = "Stopwatch"
+        setContentView(R.layout.activity_stopwatch)
+
         // initializing the Image view objects
         playBtn = findViewById<View>(R.id.playBtn) as ImageView
         pauseBtn = findViewById<View>(R.id.pauseBtn) as ImageView
         stopBtn = findViewById<View>(R.id.stopBtn) as ImageView
         timeLapseBtn = findViewById<View>(R.id.timeLapseBtn) as ImageView
-        var changePageButton = findViewById<View>(R.id.changePage)
-        changePageButton.setOnClickListener{
-            val intent = Intent(this, ForTimer::class.java)
-            startActivity(intent)
-        }
+
         // initializing the text view objects
         timeView = findViewById<View>(R.id.time_view) as TextView
         timeViewms = findViewById<View>(R.id.time_view_ms) as TextView
@@ -57,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         // play button click listener
         playBtn!!.setOnClickListener { //showing simple toast message to user
-            Toast.makeText(this@MainActivity, "Started", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Stopwatch, "Started", Toast.LENGTH_SHORT).show()
 
             // hide the play and stop button
             playBtn!!.visibility = View.GONE
@@ -72,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
         // pause button click listener
         pauseBtn!!.setOnClickListener { //showing simple toast message to user
-            Toast.makeText(this@MainActivity, "Paused", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Stopwatch, "Paused", Toast.LENGTH_SHORT).show()
 
             // show the play  and stop  button
             playBtn!!.visibility = View.VISIBLE
@@ -86,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         // stop  button click listener
         stopBtn!!.setOnClickListener { //showing simple toast message to user
-            Toast.makeText(this@MainActivity, "Stoped", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Stopwatch, "Stoped", Toast.LENGTH_SHORT).show()
 
             // set running to false
             running = false
@@ -174,7 +168,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //showing simple toast message to user
-        Toast.makeText(this@MainActivity, "Lap $lapCount", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@Stopwatch, "Lap $lapCount", Toast.LENGTH_SHORT).show()
 
         // showing the lap text
         timeLapse!!.text = laptext

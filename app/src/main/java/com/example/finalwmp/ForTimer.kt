@@ -77,9 +77,14 @@ class ForTimer : AppCompatActivity() {
     }
 
     private fun resetTimer() {
+        binding.finishText.text = ""
         time_in_milli_seconds = START_MILLI_SECONDS
         updateTextUI()
         binding.reset.visibility = View.INVISIBLE
+        binding.button.text = "Start"
+        binding.button.visibility = View.VISIBLE
+        isRunning = false
+
     }
 
     private fun updateTextUI() {
