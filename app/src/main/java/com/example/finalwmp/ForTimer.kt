@@ -78,7 +78,9 @@ class ForTimer : AppCompatActivity() {
 
     private fun resetTimer() {
         binding.finishText.text = ""
-        time_in_milli_seconds = START_MILLI_SECONDS
+        //time_in_milli_seconds = START_MILLI_SECONDS
+        val time  = binding.timeEditText.text.toString()
+        time_in_milli_seconds = time.toLong() *60000L
         updateTextUI()
         binding.reset.visibility = View.INVISIBLE
         binding.button.text = "Start"
